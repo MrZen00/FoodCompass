@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página del Restaurante</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="PaginaRestaurante.css">
+	<link rel="icon" type="image/png" href="/img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="/img/logo.jpg" alt="Logo">
+            </div>
+             <div class="header-links">
+                <a href="/restaurante/nuevoRestaurante.php">REGISTRAR MI RESTAURANTE</a>
+            </div>
+        </div>
+    </header>
+    <main class="restaurante-main">
+        <section class="restaurante-info-container">
+            <div class="restaurante-info-left">
+                <h1 id="nombre-restaurante">Healthy Poke Sevilla</h1>
+                <div class="restaurante-direccion"><i class="fas fa-map-marker-alt"></i> Av. José Laguillo, 41003, Sevilla</div>
+                <div class="restaurante-detalles">
+                    <span class="restaurante-categoria">Americano</span>
+                    <span class="restaurante-precio">Precio medio: 16 €</span>
+                    <span class="restaurante-opiniones"><i class="fas fa-star"></i> 9.1 (586 opiniones)</span>
+                </div>
+                <!-- Carrusel de fotos principal -->
+                <div class="carrusel-fotos">
+                    <button class="carrusel-flecha izq"><i class="fas fa-chevron-left"></i></button>
+                    <img src="" alt="Foto principal" class="carrusel-img" id="carrusel-img-principal" style="display:none;">
+                    <button class="carrusel-flecha der"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <!-- Miniaturas -->
+                <div class="carrusel-miniaturas" id="carrusel-miniaturas"></div>
+                <div class="restaurante-tabs">
+                    <button class="tab-btn active" data-tab="descripcion">Descripción</button>
+                    <button class="tab-btn" data-tab="opiniones">Opiniones</button>
+                </div>
+                <div class="tab-content" id="descripcion">
+                    <h2>Sobre el restaurante</h2>
+                    <p id="descripcion-texto"></p>
+                </div>
+                <div class="tab-content" id="opiniones" style="display:none">
+                    <h2>Opiniones de clientes</h2>
+                    <div class="opinion-score">
+                        <span class="score-num">9.1</span> <span class="score-desc">Excelente</span>
+                        <span class="score-count">586 opiniones</span>
+                    </div>
+                    <div class="opiniones-container" id="opiniones-container">
+                        <!-- Opiniones se cargarán aquí -->
+                    </div>
+                    <div class="opinion-real">Solo clientes reales pueden opinar</div>
+                </div>
+            </div>
+            <div class="restaurante-info-right">
+                <div class="reserva-box">
+                    <h3>Reservar una mesa</h3>
+                    <button class="buscar-mesa-btn" id="btn-buscar-mesa">
+    					<i class="fas fa-search"></i> Reservar mesa
+					</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="PaginaRestaurante.js"></script>
+</body>
+	<footer class="foodcompass-footer">
+    <div class="footer-content">
+        <div class="footer-column logo-column">
+            <img src="/img/logo.jpg" alt="FoodCompass Logo" class="footer-logo">
+            <p class="footer-description">Encuentra tu experiencia gastronómica perfecta con recomendaciones personalizadas.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/foodcompass09/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/FoodCompas91473" class="social-icon" aria-label="X"><i class="fab fa-x"></i></a>
+                <a href="https://www.tiktok.com/@foodcompass09" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3 class="footer-title">Explorar</h3>
+            <ul class="footer-links">
+                <li><a href="/restaurante/restaurante.html" class="footer-link">Restaurantes</a></li>
+                <li><a href="/util/categorias.html" class="footer-link">Categorías</a></li>
+                <li><a href="/util/ciudades.html" class="footer-link">Ciudades</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3 class="footer-title">Empresa</h3>
+            <ul class="footer-links">
+                <li><a href="#" class="footer-link">Sobre nosotros</a></li>
+                <li><a href="#" class="footer-link">Blog</a></li>
+                <li><a href="mailto:correo@foodcompass.com" class="footer-link">Empleo</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3 class="footer-title">Legal</h3>
+            <ul class="footer-links">
+                <li><a href="/util/terminos.html" class="footer-link">Términos</a></li>
+                <li><a href="/util/terminos.html" class="footer-link">Privacidad</a></li>
+                <li><a href="mailto:correo@foodcompass.com" class="footer-link">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-legal">
+            <span>© 2025 FoodCompass. Todos los derechos reservados.</span>
+            <div class="legal-links">
+                <a href="/util/terminos.html" class="legal-link">Aviso Legal</a>
+                <span class="separator">|</span>
+                <a href="/util/terminos.html" class="legal-link">Política de Privacidad</a>
+            </div>
+        </div>
+    </div>
+</footer>
+	<script>
+    // Carrusel de fotos
+    const fotos = [
+        'poke1.jpg',
+        'poke2.jpg',
+        'poke3.jpg'
+    ];
+    let fotoActual = 0;
+    const imgPrincipal = document.getElementById('carrusel-img-principal');
+    const miniaturas = document.querySelectorAll('.miniatura-foto');
+    function mostrarFoto(idx) {
+        fotoActual = idx;
+        imgPrincipal.src = fotos[idx];
+        miniaturas.forEach((m,i)=>m.classList.toggle('selected',i===idx));
+    }
+    document.querySelector('.carrusel-flecha.izq').onclick = ()=>{
+        mostrarFoto((fotoActual-1+fotos.length)%fotos.length);
+    };
+    document.querySelector('.carrusel-flecha.der').onclick = ()=>{
+        mostrarFoto((fotoActual+1)%fotos.length);
+    };
+    miniaturas.forEach((m,i)=>m.onclick=()=>mostrarFoto(i));
+    // Calendario visual básico
+    function renderCalendario(containerId) {
+        const cont = document.getElementById(containerId);
+        const hoy = new Date();
+        let mes = hoy.getMonth(), anio = hoy.getFullYear();
+        function dibujar() {
+            cont.innerHTML = '';
+            const header = document.createElement('div');
+            header.className = 'cal-nav';
+            const btnPrev = document.createElement('button');
+            btnPrev.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            btnPrev.onclick = ()=>{ mes = mes===0?11:mes-1; anio = mes===11?anio-1:anio; dibujar(); };
+            const btnNext = document.createElement('button');
+            btnNext.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            btnNext.onclick = ()=>{ mes = mes===11?0:mes+1; anio = mes===0?anio+1:anio; dibujar(); };
+            const titulo = document.createElement('span');
+            titulo.textContent = hoy.toLocaleString('es-ES',{month:'long',year:'numeric'});
+            header.append(btnPrev,titulo,btnNext);
+            cont.appendChild(header);
+            // Tabla
+            const tabla = document.createElement('table');
+            tabla.className = 'tabla-calendario';
+            const dias = ['L','M','X','J','V','S','D'];
+            const thead = document.createElement('thead');
+            const trh = document.createElement('tr');
+            dias.forEach(d=>{
+                const th = document.createElement('th'); th.textContent = d; trh.appendChild(th);
+            });
+            thead.appendChild(trh); tabla.appendChild(thead);
+            const primerDia = new Date(anio,mes,1).getDay()||7;
+            const diasMes = new Date(anio,mes+1,0).getDate();
+            let dia = 1-trh.children.length+primerDia;
+            for(let f=0;f<6;f++){
+                const tr = document.createElement('tr');
+                for(let c=0;c<7;c++,dia++){
+                    const td = document.createElement('td');
+                    if(dia>0 && dia<=diasMes){
+                        td.textContent = dia;
+                        td.onclick = ()=>{
+                            document.querySelectorAll('.tabla-calendario td').forEach(td=>td.classList.remove('cal-seleccionado'));
+                            td.classList.add('cal-seleccionado');
+                        };
+                        if(dia===hoy.getDate() && mes===hoy.getMonth() && anio===hoy.getFullYear()){
+                            td.classList.add('cal-hoy');
+                        }
+                    }
+                    tr.appendChild(td);
+                }
+                tabla.appendChild(tr);
+            }
+            cont.appendChild(tabla);
+        }
+        dibujar();
+    }
+    renderCalendario('calendario-reserva');
+    </script>
+</html>

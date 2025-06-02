@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurantes de Málaga</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+        }
+        
+        .restaurantes-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .restaurante-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .restaurante-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .card-header h2 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .info-item i {
+            margin-right: 10px;
+            color: #3498db;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .precio {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .valoracion {
+            display: flex;
+            align-items: center;
+            color: #f39c12;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+        
+        .valoracion i {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .ver-mas {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .ver-mas:hover {
+            background-color: #2980b9;
+        }
+        
+        @media (max-width: 768px) {
+            .restaurantes-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Restaurantes en Málaga</h1>
+        <p>Descubre los mejores lugares para comer en la capital de la Costa del Sol</p>
+    </div>
+    
+    <div class="restaurantes-container">
+        <!-- Restaurante 1 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Ristobottega</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Cañón, 3, Distrito Centro, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Italiana</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 2 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Palodú</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Sebastián Souvirón, 7-9, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 90€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.5/10</span>
+                </div>
+                <span class="precio">Alta cocina</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 3 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Antxoeta Art</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Barroso 7, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 45€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.7/10</span>
+                </div>
+                <span class="precio">Gourmet</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 4 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Miss Sushi Málaga Soho</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Córdoba, 6, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.7/10</span>
+                </div>
+                <span class="precio">Japonés</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 5 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>José, Herencia de Cocina</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Medellín, 1, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 20€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Tradicional</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 6 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Sushi Flower | Perchel</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Jovellanos, 5, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.6/10</span>
+                </div>
+                <span class="precio">Japonés</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 7 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Its Vietnam Soho</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Pje. Valencia, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.5/10</span>
+                </div>
+                <span class="precio">Vietnamita</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 8 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Cayetana Escala</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Hilera, 8, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 30€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.7/10</span>
+                </div>
+                <span class="precio">Gastrotaberna</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 9 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Tia Juana Malaga</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Pl. Enrique García-Herrera, 8, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>7.7/10</span>
+                </div>
+                <span class="precio">Casero</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 10 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Terraza de las Flores</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Plaza de las Flores, 4, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 18€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.5/10</span>
+                </div>
+                <span class="precio">Terraza</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 11 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Kaleja</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Marquesa de Moya, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 115€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.4/10</span>
+                </div>
+                <span class="precio">Menú degustación</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 12 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Restaurante Matiz</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Bolsa, 14, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 40€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9/10</span>
+                </div>
+                <span class="precio">Cocina de mercado</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 13 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Casa Lola</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Granada, 46, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 12€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.6/10</span>
+                </div>
+                <span class="precio">Tapas</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 14 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>El Mesón de Cervantes</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Álamos, 11, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9/10</span>
+                </div>
+                <span class="precio">Andaluz</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 15 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Amigos Grill Málaga Centro</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Calderón de la Barca, 3, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 17€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>6.2/10</span>
+                </div>
+                <span class="precio">Mexicano</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 16 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Spagos Fresh Pasta</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Calderería, 11, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 8€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Pasta fresca</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 17 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Buenavista Gastrobar</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C/ Gaona, 8, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.4/10</span>
+                </div>
+                <span class="precio">Mediterráneo</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 18 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Piccasso Bar Tapas</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Plaza De la Merced 19, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Tapas</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 19 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Calle Burger</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Mosquera, 3, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.4/10</span>
+                </div>
+                <span class="precio">Hamburguesas</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 20 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Black Label Urban Grill</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Alamos, 22, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 18€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.6/10</span>
+                </div>
+                <span class="precio">Hamburguesas gourmet</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 21 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Healthy Poke Málaga</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Martínez, 12, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Saludable</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 22 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Mi Niña Lola</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Campos Elíseos, s/n, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 50€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Internacional</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 23 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Futotta</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Duque de la Victoria, 3B, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.6/10</span>
+                </div>
+                <span class="precio">Asiático</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 24 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Justo Parrilla Argentina</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Pl. Manos Unidas, 5, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9/10</span>
+                </div>
+                <span class="precio">Argentina</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 25 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Barra Inka Nikkei</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Santiago, 6, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.4/10</span>
+                </div>
+                <span class="precio">Peruano</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 26 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Taberna de Monroy</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Lope de Rueda, 258, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>8.4/10</span>
+                </div>
+                <span class="precio">Andaluz</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 27 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>La Marca - Refugio Gastronómico</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Calle Salitre, 4, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 35€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>7.2/10</span>
+                </div>
+                <span class="precio">Carnes</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 28 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Restaurante Terraza El Taller de Larios Diez</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Marqués de Larios, 10, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Gourmet</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 29 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>El Gastronauta</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. dos Aceras, 20, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9/10</span>
+                </div>
+                <span class="precio">Fusión</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 30 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Restaurante Gusto Alcazabilla</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C/ Alcazabilla, 12, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>7/10</span>
+                </div>
+                <span class="precio">Italiano</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 31 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Kortxo Fusion Art</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Salinas, 3, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9/10</span>
+                </div>
+                <span class="precio">Fusión</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 32 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Siroko Plaza</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Calderería, 10, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Tapas</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 33 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Figon De Juan</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Pje. Esperanto, 1, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9/10</span>
+                </div>
+                <span class="precio">Tradicional</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 34 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Los Marangós Niño de Guevara</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Niño de Guevara, 3, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 25€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.2/10</span>
+                </div>
+                <span class="precio">Español</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+        
+        <!-- Restaurante 35 -->
+        <div class="restaurante-card">
+            <div class="card-header">
+                <h2>Taberna Merlot</h2>
+            </div>
+            <div class="card-body">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>C. Quasimodo, 12, Málaga</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Precio medio: 15€</span>
+                </div>
+                <div class="valoracion">
+                    <i class="fas fa-star"></i>
+                    <span>9.8/10</span>
+                </div>
+                <span class="precio">Valenciano</span>
+                <a href="https://foodcompass.es" class="ver-mas">Ver más en FoodCompass</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 FoodCompass - Todos los derechos reservados</p>
+    </div>
+</body>
+</html>

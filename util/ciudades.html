@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Próximamente | FoodCompass</title>
+    <style>
+        :root {
+            --primary: #FF5A5F;
+            --secondary: #00A699;
+            --dark: #2D2926;
+            --light: #F7F7F7;
+            --accent: #FC642D;
+            --overlay: rgba(45, 41, 38, 0.85);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+        }
+        
+        body {
+            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--light);
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .overlay {
+            background-color: var(--overlay);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--light);
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin: 10px 0 25px;
+            line-height: 1.2;
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .subtagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+        
+        .countdown {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            padding: 22px 25px;
+            border-radius: 12px;
+            min-width: 110px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        
+        .countdown-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(to bottom, var(--light), #D3D3D3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            max-width: 550px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: none;
+            border-radius: 50px 0 0 50px;
+            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--dark);
+        }
+        
+        .submit-btn {
+            padding: 0 35px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            opacity: 0.92;
+            transform: translateX(2px);
+        }
+        
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 600px;
+            margin: 30px 0;
+        }
+        
+        .city-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .city-card:hover {
+            background: rgba(255, 90, 95, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .social-icon {
+            color: var(--light);
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .subtagline {
+                font-size: 1rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+                margin: 30px 0;
+            }
+            
+            .countdown-item {
+                min-width: 75px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+            
+            .subscribe-form {
+                flex-direction: column;
+                max-width: 350px;
+            }
+            
+            .email-input, .submit-btn {
+                border-radius: 50px;
+                width: 100%;
+            }
+            
+            .email-input {
+                margin-bottom: 10px;
+            }
+            
+            .submit-btn {
+                padding: 15px;
+            }
+            
+            .cities-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 350px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay">
+        <div class="logo">FOOD<span>COMPASS</span></div>
+        <h1><span class="highlight">Próximamente:</span> Expansión a nuevas ciudades</h1>
+        
+        <p class="tagline">
+            Estamos llevando FoodCompass a más lugares para que nunca te quedes sin opciones gastronómicas
+        </p>
+        
+        <p class="subtagline">
+            Regístrate para ser notificado cuando lleguemos a tu ciudad y obtén acceso exclusivo al lanzamiento
+        </p>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">15</div>
+                <div class="countdown-label">Días</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">23</div>
+                <div class="countdown-label">Horas</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">42</div>
+                <div class="countdown-label">Minutos</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">05</div>
+                <div class="countdown-label">Segundos</div>
+            </div>
+        </div>
+        
+        <form class="subscribe-form">
+            <input type="email" class="email-input" placeholder="Tu correo electrónico" required>
+            <button type="submit" class="submit-btn">Notificarme</button>
+        </form>
+        
+        <div class="cities-grid">
+            <div class="city-card">Barcelona</div>
+            <div class="city-card">Valencia</div>
+            <div class="city-card">Sevilla</div>
+            <div class="city-card">Bilbao</div>
+            <div class="city-card">Málaga</div>
+            <div class="city-card">Zaragoza</div>
+            <div class="city-card">Murcia</div>
+            <div class="city-card">Palma</div>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/foodcompass09/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/FoodCompas91473" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.tiktok.com/@foodcompass09" class="social-icon"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <script>
+        // Contador regresivo (15 días desde hoy)
+        const countdown = () => {
+            const targetDate = new Date();
+            targetDate.setDate(targetDate.getDate() + 15);
+            
+            const updateCountdown = () => {
+                const now = new Date();
+                const difference = targetDate - now;
+                
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            };
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        };
+        
+        // Iniciar contador
+        window.onload = countdown;
+        
+        // Manejar formulario
+        document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.email-input').value;
+            alert(`¡Gracias! Te avisaremos cuando FoodCompass llegue a tu ciudad (${email})`);
+            this.querySelector('.email-input').value = '';
+        });
+    </script>
+</body>
+</html>
